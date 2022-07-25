@@ -5,7 +5,8 @@
   "license": "ISC",
   "keywords": [],
   "scripts": {
-    "dev": "parcel 'src/*.html' --lazy",
+    "clean": "rimraf dist",
+    "dev": "cd src && python3 -m http.server",
     "lint": "pnpm prettier",
     "lint:fix": "pnpm package:fix && pnpm prettier:fix",
     "package:fix": "format-package -w",
@@ -17,7 +18,7 @@
     "format-package": "^7.0.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
-    "parcel": "^2.6.2",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2"
   }
 }
