@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>hover</title>
+    <style>
+      h2.example {
+        --c: no-repeat linear-gradient(#1095c1 0 0);
+        background: var(--c) calc(-101% + var(--p, 0%)) 100%,
+          var(--c) calc(201% - var(--p, 0%)) 0;
+        background-size: 50.1% var(--p, 0.08em);
+        transition: 0.3s var(--t, 0s),
+          background-position 0.3s calc(0.3s - var(--t, 0s));
+      }
+      h2.example:hover {
+        --p: 101%;
+        --t: 0.3s;
+        color: #fff;
+      }
+      body {
+        height: 100vh;
+        margin: 0;
+        display: grid;
+        place-content: center;
+      }
+      h1,
+      h2 {
+        font-family: system-ui, sans-serif;
+        padding: 0 0.07em;
+      }
+      h1 {
+        font-size: 5rem;
+      }
+      h2 {
+        font-size: 3rem;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>hovers</h1>
+      <h2 class="example">hover me</h2>
+    </main>
+  </body>
+</html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>box model</title>
+    <title>font</title>
     <style>
       body {
         height: 100vh;
@@ -9,9 +9,8 @@
         display: grid;
         place-content: center;
       }
-      h1 {
-        font-family: system-ui, sans-serif;
-        font-size: 5rem;
+      article {
+        font-size: 2rem;
         padding: 0 0.07em;
       }
     </style>
@@ -19,7 +18,8 @@
   <body>
     <main>
       <article>
-        <h1>article</h1>
+        <p>default font</p>
+        <p style="font-family: system-ui, sans-serif">system-ui, sans-serif</p>
       </article>
     </main>
   </body>
