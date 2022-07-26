@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>content</title>
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        display: grid;
+        place-content: center;
+        background-color: #eee;
+      }
+      h1 {
+        font-family: system-ui, sans-serif;
+        font-size: 3rem;
+      }
+      :root {
+        --my-variable: "my-variable-value";
+      }
+      p {
+        font-size: 2em;
+      }
+      p.after::after {
+        content: "after";
+      }
+      p.before::before {
+        content: "before";
+      }
+      p.foo-class::after {
+        content: attr(class);
+      }
+      p.append-strings::after {
+        content: "append" " " "strings";
+      }
+      p.variable::after {
+        content: --my-variable;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>content</h1>
+        <p class="after">:content:</p>
+        <p class="before">:content:</p>
+        <p class="foo-class">class:</p>
+        <p class="append-strings">content:</p>
+        <p class="my-variable">my-variable:</p>
+      </article>
+    </main>
+  </body>
+</html>

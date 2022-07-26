@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>full page</title>
+    <title>background</title>
     <style>
       body {
         height: 100vh;
@@ -10,23 +10,27 @@
         place-content: center;
         background-color: #eee;
       }
-      main {
-        background-color: #ddd;
-      }
-      article {
-        background-color: #ccc;
-      }
       h1 {
-        background-color: #bbb;
         font-family: system-ui, sans-serif;
-        font-size: 5rem;
+        font-size: 2rem;
+      }
+      p {
+        --background: green;
+        background: var(--background);
+      }
+      p::after {
+        content: var(--background, "no background");
+      }
+      p.green {
+        --background: green;
       }
     </style>
   </head>
   <body>
     <main>
       <article>
-        <h1>full page</h1>
+        <h1>backgrounds</h1>
+        <p style="--background: green">X</p>
       </article>
     </main>
   </body>
