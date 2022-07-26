@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>variables</title>
+    <style>
+      :root {
+        --main-color: brown;
+        --border-color: #000;
+        --width: 2px;
+      }
+      body {
+        height: 100vh;
+        margin: 0;
+        display: grid;
+        place-content: center;
+      }
+      h1 {
+        font-family: system-ui, sans-serif;
+        font-size: 5rem;
+        padding: 0 0.07em;
+      }
+      p {
+        font-size: 3rem;
+        border: var(--width) var(--border-style, solid) var(--border-color);
+      }
+      .one {
+        color: var(--main-color);
+        border: var(--width) solid var(--border-color);
+      }
+      .two {
+        color: var(--main-color);
+        --width: 3px;
+      }
+      .three {
+        color: var(--main-color);
+        --border-style: dashed;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>variables</h1>
+        <p class="one">one</p>
+        <p class="two">two</p>
+        <p class="three">three</p>
+      </article>
+    </main>
+  </body>
+</html>
