@@ -12,14 +12,14 @@
       }
       h1 {
         font-family: system-ui, sans-serif;
-        font-size: 2rem;
+        font-size: 3rem;
       }
       p {
-        --background: green;
+        font-size: 2rem;
         background: var(--background);
       }
       p::after {
-        content: var(--background, "no background");
+        content: attr(style);
       }
       p.green {
         --background: green;
@@ -30,7 +30,18 @@
     <main>
       <article>
         <h1>backgrounds</h1>
-        <p style="--background: green">X</p>
+        <p>no background</p>
+        <p style="--background: #aaa" />
+        <p style="--background: rgba(0, 99, 0, 0.2)" />
+        <p style="--background: linear-gradient(#eee, #999)" />
+        <p style="--background: linear-gradient(to right, #eee, #999)" />
+        <p style="--background: linear-gradient(#eee, #999, #eee)" />
+        <p style="--background: linear-gradient(180deg, #eee, #999)" />
+        <p
+          style="
+            --background: repeating-linear-gradient(to right, #eee, #999 10%);
+          "
+        />
       </article>
     </main>
   </body>

@@ -9,6 +9,7 @@
         display: grid;
         place-content: center;
         background-color: #eee;
+        counter-reset: my-counter;
       }
       h1 {
         font-family: system-ui, sans-serif;
@@ -16,6 +17,7 @@
       }
       :root {
         --my-variable: "my-variable-value";
+        --my-colour: green;
       }
       p {
         font-size: 2em;
@@ -32,8 +34,15 @@
       p.append-strings::after {
         content: "append" " " "strings";
       }
-      p.variable::after {
-        content: --my-variable;
+      p.my-variable::after {
+        content: var(--my-variable);
+      }
+      p.my-colour::after {
+        content: var(--my-colour);
+      }
+      p.counter::after {
+        counter-increment: my-counter;
+        content: counter(my-counter);
       }
     </style>
   </head>
@@ -46,6 +55,9 @@
         <p class="foo-class">class:</p>
         <p class="append-strings">content:</p>
         <p class="my-variable">my-variable:</p>
+        <p class="my-colour">my-colour:</p>
+        <p class="counter">counter:</p>
+        <p class="counter">counter:</p>
       </article>
     </main>
   </body>
