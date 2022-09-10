@@ -3,46 +3,53 @@
   <head>
     <title>Show hide header</title>
     <style>
-      #header {
+      header {
         position: fixed;
         top: 0;
-        height: 100px;
+        height: 50px;
         background-color: yellow;
         width: 100%;
       }
       body {
         margin: 0;
+        font-size: 1.5rem;
+        font-family: system-ui, sans-serif;
       }
-      #main {
-        margin-top: 150px;
+      main,
+      header,
+      aside {
+        padding: 1rem;
+      }
+      main {
+        margin-top: 100px;
+      }
+      aside {
+        position: fixed;
+        bottom: 0;
+        right: 0;
       }
     </style>
   </head>
   <body>
+    <header id="header">Header block</header>
     <main>
-      <header id="header">Header block</header>
       <article id="main">
         <h1>Show hide header</h1>
-        <section id="info">Info</section>
         <section id="content" />
       </article>
+      <aside id="info">Info</aside>
     </main>
     <script>
-      var $ = (id) => {
-        return document.getElementById(id);
-      };
-      var contentSectionElement = $("content");
+      var $ = (id) => document.getElementById(id);
       for (var i = 0; i < 50; i++) {
         var contentElement = document.createElement("p");
         contentElement.appendChild(document.createTextNode("content " + i));
-        contentSectionElement.append(contentElement);
+        $("content").append(contentElement);
       }
 
       window.onscroll = () => {
-        var currentY = window.pageYOffset;
-        var offset = parseInt(-currentY / 3);
-
-        $("info").innerHTML = `Y = ${currentY} ; offset = ${offset}`;
+        var offset = parseInt(-window.pageYOffset / 3);
+        $("info").innerHTML = `Y = ${window.pageYOffset} ; offset = ${offset}`;
         $("header").style.top = `${offset}px`;
       };
     </script>
