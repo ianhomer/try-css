@@ -28,20 +28,22 @@
       </article>
     </main>
     <script>
-      var contentSectionElement = document.getElementById("content");
+      var $ = (id) => {
+        return document.getElementById(id);
+      };
+      var contentSectionElement = $("content");
       for (var i = 0; i < 50; i++) {
         var contentElement = document.createElement("p");
         contentElement.appendChild(document.createTextNode("content " + i));
         contentSectionElement.append(contentElement);
       }
 
-      window.onscroll = function () {
+      window.onscroll = () => {
         var currentY = window.pageYOffset;
         var offset = parseInt(-currentY / 3);
 
-        document.getElementById("info").innerHTML =
-          "Y = " + currentY + "; offset = " + offset;
-        document.getElementById("header").style.top = offset + "px";
+        $("info").innerHTML = `Y = ${currentY} ; offset = ${offset}`;
+        $("header").style.top = `${offset}px`;
       };
     </script>
   </body>
