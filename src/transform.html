@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>transform</title>
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        display: grid;
+        place-content: center;
+        background-color: #eee;
+        font-size: 2em;
+      }
+      p {
+        background-color: #fff;
+        padding: 2em;
+        border: 2px solid black;
+        transform: rotate(var(--rotation, 0deg));
+        transition: transform 1s ease-in-out;
+      }
+      p#example:hover {
+        --rotation: 20deg;
+        border-style: dashed;
+        background-color: #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article>
+        <p id="example">text</p>
+      </article>
+    </main>
+  </body>
+</html>
