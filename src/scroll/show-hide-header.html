@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Show hide header</title>
+    <style>
+      #header {
+        position: fixed;
+        top: 0;
+        height: 100px;
+        background-color: yellow;
+        width: 100%;
+      }
+      body {
+        margin: 0;
+      }
+      #main {
+        margin-top: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header id="header">Header block</header>
+      <article id="main">
+        <h1>Show hide header</h1>
+        <section id="info">Info</section>
+        <section id="content" />
+      </article>
+    </main>
+    <script>
+      var contentSectionElement = document.getElementById("content");
+      for (var i = 0; i < 50; i++) {
+        var contentElement = document.createElement("p");
+        contentElement.appendChild(document.createTextNode("content " + i));
+        contentSectionElement.append(contentElement);
+      }
+
+      window.onscroll = function () {
+        var currentY = window.pageYOffset;
+        var offset = parseInt(-currentY / 3);
+
+        document.getElementById("info").innerHTML =
+          "Y = " + currentY + "; offset = " + offset;
+        document.getElementById("header").style.top = offset + "px";
+      };
+    </script>
+  </body>
+</html>
