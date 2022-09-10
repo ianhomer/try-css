@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>animation</title>
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        display: grid;
+        background-color: #eee;
+        font-size: 2em;
+      }
+      #example {
+        animation: example 2s ease-in infinite;
+        color: black;
+        margin: 1em;
+        padding: 1em;
+        border: 3px solid black;
+      }
+
+      @keyframes example {
+        50% {
+          color: red;
+          margin: 0;
+          padding: 0;
+          border: 1px dashed black;
+          font-size: 0.75em;
+        }
+        100% {
+          color: black;
+          margin: 1em;
+          border: 3px solid black;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article>
+        <p id="example">color</p>
+      </article>
+    </main>
+  </body>
+</html>
