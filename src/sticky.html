@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>sticky</title>
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        display: grid;
+        background-color: #eee;
+        margin: 1em;
+        padding: 1em;
+      }
+      h1 {
+        font-family: system-ui, sans-serif;
+        font-size: 2rem;
+        border: 2px solid black;
+        position: sticky;
+        top: 0px;
+        z-index: 9;
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>sticky</h1>
+        <section id="content" />
+      </article>
+    </main>
+    <script>
+      const $ = (id) => document.getElementById(id);
+      for (var i = 0; i < 50; i++) {
+        var contentElement = document.createElement("p");
+        contentElement.appendChild(document.createTextNode("content " + i));
+        $("content").append(contentElement);
+      }
+    </script>
+  </body>
+</html>

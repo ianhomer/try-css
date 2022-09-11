@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>sticky</title>
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        display: grid;
+        background-color: #eee;
+      }
+      h1 {
+        font-family: system-ui, sans-serif;
+        font-size: 2rem;
+      }
+      li {
+        position: sticky;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 100vh;
+      }
+      ol li:nth-child(1) {
+        top: 5vh;
+      }
+      ol li:nth-child(2) {
+        top: 10vh;
+      }
+      ol li:nth-child(3) {
+        top: 15vh;
+      }
+      ol li:nth-child(4) {
+        top: 20vh;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>sticky</h1>
+        <ol>
+          <li>item 1</li>
+          <li>item 2</li>
+          <li>item 3</li>
+          <li>item 4</li>
+        </ol>
+        <p>content after</p>
+      </article>
+    </main>
+  </body>
+</html>
