@@ -40,7 +40,7 @@
       <aside id="info">Info</aside>
     </main>
     <script>
-      var $ = (id) => document.getElementById(id);
+      const $ = (id) => document.getElementById(id);
       for (var i = 0; i < 50; i++) {
         var contentElement = document.createElement("p");
         contentElement.appendChild(document.createTextNode("content " + i));

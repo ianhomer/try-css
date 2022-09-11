@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>animation</title>
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        display: grid;
+        background-color: #eee;
+        font-size: 2em;
+      }
+      article p {
+        margin: 1em;
+        padding: 1em;
+      }
+      #example {
+        color: black;
+        border: 3px solid black;
+      }
+      .swiper {
+        bacground-color: #aaa;
+        animation: swiper 2s ease-in;
+      }
+      .wrapper {
+        border: 1px solid #aaa;
+      }
+
+      @keyframes swiper {
+        50% {
+          color: red;
+          border: 1px dashed black;
+          font-size: 0.75em;
+        }
+        100% {
+          color: black;
+        }
+      }
+      aside {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+      }
+      aside p {
+        margin: 0;
+        padding: 0;
+        font-size: 0.75em;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article>
+        <div class="wrapper">
+          <p id="example">color</p>
+        </div>
+        <section id="content" />
+      </article>
+      <aside id="info" />
+    </main>
+    <script>
+      const $ = (id) => document.getElementById(id);
+      const info = (message) => {
+        var contentElement = document.createElement("p");
+        contentElement.appendChild(document.createTextNode(message));
+        $("info").append(contentElement);
+      };
+      info("info");
+
+      for (var i = 0; i < 50; i++) {
+        var contentElement = document.createElement("p");
+        contentElement.appendChild(document.createTextNode("content " + i));
+        $("content").append(contentElement);
+      }
+      const example = document.querySelector("#example");
+      const observer = new IntersectionObserver((entries) => {
+        info("observing");
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            info("is intersecting");
+            example.classList.add("swiper");
+            return;
+          }
+          info("not intersecting");
+
+          example.classList.remove("swiper");
+        });
+      });
+      info("creating observer");
+      observer.observe(document.querySelector(".wrapper"));
+    </script>
+  </body>
+</html>
